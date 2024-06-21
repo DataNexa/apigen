@@ -1,0 +1,10 @@
+import { Router } from "express";
+[#import_middlewares]
+[#import_service]
+
+const router = Router()
+
+export default () => {
+
+[#routes]
+}

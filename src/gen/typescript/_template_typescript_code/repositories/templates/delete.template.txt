@@ -1,0 +1,10 @@
+    
+    
+    delete: async ([#params]):Promise<boolean> => {
+        
+        const resp = await execute(`[#query_delete]`, {
+            binds:[[#values]]
+        })
+
+        return !resp.error
+    }

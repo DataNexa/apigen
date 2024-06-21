@@ -1,0 +1,25 @@
+import { execute, query, multiTransaction } from "../util/query"
+
+interface [#service]_i {
+[#fields]
+}
+
+interface create_response {
+    error:boolean,
+    message:string,
+    insertId:number,
+    code:number
+}
+
+interface unique_response {
+    error:boolean,
+    message:string,
+    code:number,
+    row?:[#service]_i
+}
+
+const [#service]_repo = {
+    [#methods]
+}
+
+export { [#service]_repo, [#service]_i }

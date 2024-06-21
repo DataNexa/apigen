@@ -1,0 +1,10 @@
+    
+    
+    update: async ([#params]):Promise<boolean> => {
+        
+        const resp = await execute(`[#query_update]`, {
+            binds:[[#values]]
+        })
+
+        return !resp.error
+    }

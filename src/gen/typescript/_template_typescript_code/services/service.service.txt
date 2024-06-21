@@ -1,0 +1,11 @@
+import { Request, Response, NextFunction } from 'express'
+import response from '../util/response'
+import { body, validationResult } from 'express-validator'
+
+[#repositorie]
+
+export default {
+
+    [#methods]
+
+}
