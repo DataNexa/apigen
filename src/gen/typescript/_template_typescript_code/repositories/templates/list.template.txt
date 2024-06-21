@@ -1,0 +1,12 @@
+    
+    
+    list: async ([#params] injectString:string=''):Promise<[#service]_i[]|false> => {
+            
+        const resp = await query(`[#query_list]    ${injectString}`, {
+            binds:[[#values]]
+        })
+
+        if(resp.error) return false 
+
+        return (resp.rows as [#service]_i[])
+    }

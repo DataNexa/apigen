@@ -1,0 +1,30 @@
+    
+    
+    unique: async ([#params]):Promise<unique_response> =>  {
+        
+        const resp = await query(`[#query_list]`, {
+            binds:[[#values]]
+        })
+
+        if(resp.error) return {
+            error:true,
+            code:500,
+            message:'Erro no servidor'
+        } 
+
+        const rows = (resp.rows as campanhas_i[])
+
+        if(rows.length == 0) return {
+            error:true,
+            code:404,
+            message:'Registro não encontrado'
+        }  
+
+        return {
+            error:false,
+            code:200,
+            message:'',
+            row: rows[0]
+        }  
+
+    }

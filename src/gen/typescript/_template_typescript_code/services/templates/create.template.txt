@@ -1,0 +1,29 @@
+
+
+    create: async (req:Request, res:Response) => {
+
+[#body_validate]
+
+        if(!validationResult(req).isEmpty()){
+            return response(res, {
+                code: 400,
+                message:"Bad Request"
+            })
+        }
+
+        const { [#fields] } = req.body
+        const resp_repo = await [#service]_repo.create([#fields])
+
+        if(resp_repo.error){
+            return response(res, {
+                code:resp_repo.code,
+                message: resp_repo.message
+            })
+        }
+
+        response(res, {
+            code:200,
+            body:resp_repo.insertId
+        })
+
+    }
